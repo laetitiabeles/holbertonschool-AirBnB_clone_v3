@@ -88,8 +88,8 @@ class TestFileStorage(unittest.TestCase):
         """Test that save properly saves objects to file.json"""
 
     def test_get(self):
-        """Tests the get"""
-        new_state = State(name="Nord")
+        """ test the method get"""
+        new_state = State(name="France")
         new_state.save()
         state_id = new_state.id
         state_key = "State." + state_id
@@ -97,9 +97,9 @@ class TestFileStorage(unittest.TestCase):
         self.assertIn(state_key, models.storage.all(State).keys())
 
     def test_count(self):
-        """Tests the count"""
+        """Tests the  method coun """
         num_states = len(models.storage.all(State))
-        s = State(name="Pas-de-Calais")
-        s.save()
+        statnum = State(name="Maine")
+        statnum.save()
         self.assertEqual(models.storage.count(), len(models.storage.all()))
         self.assertEqual(models.storage.count(State), num_states + 1)
