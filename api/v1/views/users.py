@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 # Import necessary Flask modules and classes
 from flask import jsonify, request, abort
 from api.v1.views import app_views
