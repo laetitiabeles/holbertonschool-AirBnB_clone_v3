@@ -1,33 +1,32 @@
-#!/usr/bin/python3
-
+# Import necessary Flask modules and classes
 from flask import jsonify, request, abort
 from api.v1.views import app_views
 from models import storage
 from models.user import User
 
 
-# get all users
+# Route to retrieve all users
 @app_views.route("/users", methods=["GET"], strict_slashes=False)
 def get_users():
     """Retrieves the list of all User objects"""
     users = storage.all(User)
-    return jsonify([users.to_dict() for user in users.values()])
+    return jsonify([user.to_dict() for user in users.values()])
 
 
-# get user by id
+# Route to retrieve a user by ID
 @app_views.route("/users/<user_id>", methods=["GET"], strict_slashes=False)
 def get_user(user_id):
-    """Retrieves a User by id"""
+    """Retrieves a User by ID"""
     user = storage.get(User, user_id)
     if user is None:
         abort(404)
     return jsonify(user.to_dict())
 
 
-# delete user by id
+# Route to delete a user by ID
 @app_views.route("/users/<user_id>", methods=["DELETE"], strict_slashes=False)
 def delete_user(user_id):
-    """Deletes a User by id"""
+    """Deletes a User by ID"""
     user = storage.get(User, user_id)
     if user is None:
         abort(404)
@@ -36,7 +35,7 @@ def delete_user(user_id):
     return jsonify({})
 
 
-# create user
+# Route to create a new user
 @app_views.route("/users", methods=["POST"], strict_slashes=False)
 def post_user():
     """Creates a User"""
@@ -52,7 +51,7 @@ def post_user():
     return jsonify(user.to_dict()), 201
 
 
-# update user
+# Route to update a user by ID
 @app_views.route("/users/<user_id>", methods=["PUT"], strict_slashes=False)
 def put_user(user_id):
     """Updates a User"""
