@@ -28,7 +28,7 @@ def get_amenities():
 # GET a amenity by id
 # ============================================================================
 
-@app_views.route('/amenities/<amenity_id>', methods=['GET'], 
+@app_views.route('/amenities/<amenity_id>', methods=['GET'],
                  strict_slashes=False)
 def get_one_amenity(amenity_id):
     """ Return an amenity by id """
@@ -42,7 +42,7 @@ def get_one_amenity(amenity_id):
 # DELETE one amenity (id)
 # ============================================================================
 
-@app_views.route('/amenities/<amenity_id>', methods=['DELETE'], 
+@app_views.route('/amenities/<amenity_id>', methods=['DELETE'],
                  strict_slashes=False)
 def delete_amenity(amenity_id):
     """ Delete a amenitie by id """
@@ -77,7 +77,7 @@ def create_amenity():
 # PUT: Update an amenity
 # ============================================================================
 
-@app_views.route('/amenities/<amenity_id>', methods=['PUT'], 
+@app_views.route('/amenities/<amenity_id>', methods=['PUT'],
                  strict_slashes=False)
 def update_amenity(amenity_id):
     """ Update an Amenity """
