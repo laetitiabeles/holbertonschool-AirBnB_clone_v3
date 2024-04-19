@@ -8,7 +8,10 @@ from models import storage
 from models.user import User
 
 
-# Route to retrieve all users
+# GET all users
+# ============================================================================
+
+
 @app_views.route("/users", methods=["GET"], strict_slashes=False)
 def get_users():
     """Retrieves the list of all User objects"""
@@ -16,7 +19,10 @@ def get_users():
     return jsonify([user.to_dict() for user in users.values()])
 
 
-# Route to retrieve a user by ID
+# GET a user by ID
+# ============================================================================
+
+
 @app_views.route("/users/<user_id>", methods=["GET"], strict_slashes=False)
 def get_user(user_id):
     """Retrieves a User by ID"""
@@ -26,7 +32,10 @@ def get_user(user_id):
     return jsonify(user.to_dict())
 
 
-# Route to delete a user by ID
+# DELETE a user by ID
+# ============================================================================
+
+
 @app_views.route("/users/<user_id>", methods=["DELETE"], strict_slashes=False)
 def delete_user(user_id):
     """Deletes a User by ID"""
@@ -38,7 +47,10 @@ def delete_user(user_id):
     return jsonify({})
 
 
-# Route to create a new user
+# CREATE a new user
+# ============================================================================
+
+
 @app_views.route("/users", methods=["POST"], strict_slashes=False)
 def post_user():
     """Creates a User"""
@@ -54,7 +66,10 @@ def post_user():
     return jsonify(user.to_dict()), 201
 
 
-# Route to update a user by ID
+# UPDATE a user by ID
+# ============================================================================
+
+
 @app_views.route("/users/<user_id>", methods=["PUT"], strict_slashes=False)
 def put_user(user_id):
     """Updates a User"""
