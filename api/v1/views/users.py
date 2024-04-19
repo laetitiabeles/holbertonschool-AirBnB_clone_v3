@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" users module for the API """
 
 # Import necessary Flask modules and classes
 from flask import jsonify, request, abort
